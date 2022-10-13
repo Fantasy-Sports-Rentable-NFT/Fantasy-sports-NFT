@@ -172,12 +172,12 @@ const Header= function() {
                     </div>
                     <div className='navbar-item'>
                       <NavLink to="/holdings" onClick={() => btn_icon(!showmenu)}>
-                        DAO Holdings
+                        
                       </NavLink>
                     </div>
                     <div className='navbar-item'>
                       <NavLink to="/mint" onClick={() => btn_icon(!showmenu)}>
-                        Mint
+                        
                       </NavLink>
                     </div>
                     
@@ -203,17 +203,17 @@ const Header= function() {
                     </div>
                     <div className='navbar-item'>
                       <NavLink to="/holdings">
-                      DAO Holdings
+                      NFT Player Market
                       <span className='lines'></span>
                       </NavLink>
                     </div>
                     
                     <div className='navbar-item'>
-                      <NavLink to="/mint">
-                      Mint
+                    <NavLink to="/mint">
+                      
                       <span className='lines'></span>
-                      </NavLink>
-                    </div>
+                    </NavLink>
+                 </div>
                     
                   </div>
                 </Breakpoint>

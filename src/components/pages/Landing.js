@@ -162,7 +162,7 @@ async function connect() {
               <div className="col-lg-2 col-sm-4 col-6 mb30">
                   <span className="box-url">
                       <img src="./img/wallet/2.png" alt="" className="mb20"/>
-                      <h4>Bitski</h4>
+                      <h4>Bitley</h4>
                   </span>
               </div>       
   

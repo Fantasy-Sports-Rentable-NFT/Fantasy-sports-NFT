@@ -31,13 +31,13 @@ const slidermainparticle= () => (
     <div className="row align-items-center">
           <div className="col-md-6">
               <div className="spacer-single"></div>
-              <h6> <span className="text-uppercase color">The World's First</span></h6>
+              <h6> <span className="text-uppercase color"></span></h6>
               <Reveal className='onStep' keyframes={fadeInUp} delay={300} duration={900} triggerOnce>
-              <h1 className="col-white">InsurTech DAO.</h1>
+              <h1 className="col-white">NFT Fantasy Sports</h1>
               </Reveal>
               <Reveal className='onStep' keyframes={fadeInUp} delay={600} duration={900} triggerOnce>
-              <p className="lead col-white">
-              Pebble DAO is powered by IoTeX, and thus leverages the intersection between Blockchain and Internet of Things Technology to provide seamless solutions to the InsurTech industry.
+              <p className="col-white">
+              Text
               </p>
               </Reveal>
               <div className="spacer-10"></div>
@@ -54,14 +54,14 @@ const slidermainparticle= () => (
 
                           <div className="col-lg-4 col-md-6 col-sm-4 mb30">
                               <div className="de_count text-left">
-                                  <h3><span>Pebble Trackers</span></h3>
-                                  
+                                 <h3><span>Text</span></h3>
+                                
                               </div>
                           </div>
 
                           <div className="col-lg-4 col-md-6 col-sm-4 mb30">
                               <div className="de_count text-left">
-                                  <h3><span>Pooled in a DAO</span></h3>
+                                  <h3><span>Text</span></h3>
                                   
                               </div>
                           </div>
