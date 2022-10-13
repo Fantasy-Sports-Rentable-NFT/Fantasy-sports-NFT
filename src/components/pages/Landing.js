@@ -110,11 +110,7 @@ const GlobalStyles = createGlobalStyle`
 
 const Landing = () => {
 
-  // const injected = new InjectedConnector({
-  //   supportedChainIds: [1, 3, 4, 5, 42, 4690],
-  // })
-
-const { active, account, chainId, library, connector, activate, deactivate } = useWeb3React();
+const { active, account, chainId } = useWeb3React();
 
 const {globalAccount, setGlobalAccount, globalActive, setGlobalActive, globalChainId, setGlobalChainId} = useContext(AccountContext);
 
@@ -123,22 +119,6 @@ useEffect(() => {
   setGlobalActive(active);
   setGlobalChainId(chainId);
 }, [account, active, chainId])
-
-async function connect() {
-    // try {
-    //   await activate(injected)
-    // } catch (ex) {
-    //   console.log(ex)
-    // }
-  }
-
-  async function disconnect() {
-    // try {
-    //   deactivate()
-    // } catch (ex) {
-    //   console.log(ex)
-    // }
-  }
   
   return(
     <div>
@@ -151,11 +131,11 @@ async function connect() {
         <section className='container no-bottom'>
           <div className="row">
               <div className="col-lg-2 col-sm-4 col-6 mb30" >
-                  <span className="box-url" onClick={connect}>
+                  <span className="box-url">
                       
                       <img src="./img/wallet/1.png" alt="" className="mb20"/>
                       
-                      <h4>Metamask {active && <span>{`${account.slice(0,5)}...${account.slice(-4)}`}</span>}</h4>
+                      <h4>Metamask {account && <span>{`${account.slice(0,5)}...${account.slice(-4)}`}</span>}</h4>
                   </span>
               </div>
   
