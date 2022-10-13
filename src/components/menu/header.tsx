@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext} from "react";
 import { BreakpointProvider, setDefaultBreakpoints } from "react-socks";
 import { Link, LinkProps } from 'react-router-dom';
 import useOnclickOutside from "react-cool-onclickoutside";
-import { useAccount, useConnectors, InjectedConnector } from '@starknet-react/core'
+import { useWeb3React } from '@web3-react/core'
 
 
 setDefaultBreakpoints([
@@ -20,18 +20,26 @@ const Header= function() {
     const [openMenu2, setOpenMenu2] = React.useState(false);
     const [openMenu3, setOpenMenu3] = React.useState(false);
 
-    const { account, address, status } = useAccount()
-    const { available, connect, refresh, disconnect, connectors } = useConnectors()
+    const { connector, isActivating, isActive, account, chainId, ENSName } = useWeb3React()
+    const [error, setError] = useState<Error | undefined>()
 
-    // const connectors = [
-    //   new InjectedConnector({ options: { id: "argentX" } })
-    // ];
+    const connect = () => {
+      localStorage.removeItem('deactivated')
+  
+      connector
+        .activate()
+        ?.then(() => setError(undefined))
+        ?.catch(setError)
+    }
 
-    useEffect(() => {
-      console.log(available)
-      const interval = setInterval(refresh, 5000)
-      return () => clearInterval(interval)
-    }, [refresh])
+    const disconnect = async () => {
+      localStorage.setItem('deactivated', 'true')
+      if (connector?.deactivate) {
+        await connector.deactivate()
+      } else {
+        await connector.resetState()
+      }
+    }
 
 
     const handleBtnClick = () => {
@@ -126,24 +134,22 @@ const Header= function() {
           </div>
           <div className='mainside' style = {{width: "15%"}}>
             
-          {status !== 'connected' && connectors && connectors.length>0 &&
+          {!isActive &&
                 
-                  <button  className="btn-main" onClick={() => {connect(connectors[0])}}>
-                    Connect {connectors[0].id()}
+                  <button  className="btn-main" onClick={() => {connect()}}>
+                    Connect
                   </button>
               
             
             }
             
-            {status === 'connected' && 
+            {isActive && 
               <button onClick= {disconnect} className="btn-main">Disconnect</button>
             }
           </div>
         </div>
                   
-      </div>
-
-           
+      </div>           
     </header>
     );
 }
