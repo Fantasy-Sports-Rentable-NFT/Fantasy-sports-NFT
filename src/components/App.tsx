@@ -25,11 +25,10 @@ const App: React.FC = () => {
         <Router>
           <Header/>
           <Routes>
-            <Route path="/" element={<Landing />}>
-              <Route path="/profile" element={<Collection />} />
-              <Route path="/holdings" element={<Holdings />} />
-              <Route path="/mint" element={<Mint />} />
-            </Route>
+            <Route path="/" element={<Landing />} />
+            <Route path="/profile" element={<Collection />} />
+            <Route path="/holdings" element={<Holdings />} />
+            <Route path="/mint" element={<Mint />} />
           </Routes>
         </Router>
       </QueryClientProvider>
