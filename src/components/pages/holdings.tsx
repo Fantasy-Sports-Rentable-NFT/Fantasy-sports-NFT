@@ -1,14 +1,6 @@
-import React, {useState, useContext, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import Footer from '../components/Footer';
-//import { createGlobalStyle } from 'styled-components';
 import { useWeb3React } from "@web3-react/core";
-import { AccountContext } from '../App';
-
-// const GlobalStyles = createGlobalStyle`
-//   header#myHeader.navbar.white {
-//     background: #212428;
-//   }
-// `;
 
 const Holdings : React.FC = () => {
 const [nftList, setNftList] = useState<any[]>([]);
@@ -16,8 +8,6 @@ const [metaDataList, setMetaDataList] = useState<any[]>([]);
 const [memberList, setMemberList] = useState<any[]>([]);
 
 const { account, chainId, connector, provider } = useWeb3React();
-
-const {globalAccount, setGlobalAccount, globalActive, setGlobalActive, globalChainId, setGlobalChainId} = useContext(AccountContext);
 
 
 useEffect(() => {
@@ -49,13 +39,6 @@ useEffect(() => {
     setNftList([]);
     setMetaDataList([]);
     setMemberList([]);
-  }
-
-  if(setGlobalAccount){
-    setGlobalAccount(account ?? '')
-  }
-  if(setGlobalChainId){
-    setGlobalChainId(chainId ?? 0)
   }
 }
 
